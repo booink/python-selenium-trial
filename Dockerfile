@@ -31,5 +31,14 @@ RUN pip install chromedriver-binary~=`cat chrome-version` && rm chrome-version
 # add font
 RUN apt-get install -y fonts-ipafont-gothic --no-install-recommends
 
+# install nodejs
+RUN apt-get install -y curl
+RUN curl -sL https://deb.nodesource.com/setup_14.x | bash -
+RUN apt-get install -y nodejs
+
+# インストールしたいjupyter labのextensionをインストールする
+# ↓は例として toc extensionをインストールしている
+RUN jupyter labextension install @jupyterlab/toc
+
 ADD . /app
 WORKDIR /app
