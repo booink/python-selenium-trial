@@ -9,4 +9,7 @@ services:
     ports:
       - 8001:8888
     command: jupyter lab --port 8888 --ip=0.0.0.0 --allow-root
+    environment:
+      LOGIN_EMAIL: test@example.com
+      LOGIN_PASSWORD: hogefuga
 
